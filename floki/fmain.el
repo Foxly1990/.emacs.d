@@ -60,7 +60,6 @@
 ;; Сохранить сессию
 (desktop-save-mode -1)
 
-
 ;; Настройка скролла
 (setq scroll-step                 1)
 (setq scroll-margin              10)
@@ -74,8 +73,8 @@
 ;; заполненный цветом прямоугольник 'box
 ;; незаполенный цветом прямоугольник 'hollow
 ;; вертикальная линия 'bar
-(setq-default cursor-type 'box)
-;;(set-cursor-color "#ffff00")
+(setq-default cursor-type 'hbar)
+(set-cursor-color "#ffff00")
 
 ;; Auto revert buffers
 (global-auto-revert-mode 1)
