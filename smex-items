@@ -1,0 +1,16 @@
+
+;; ----- smex-history -----
+(
+ package-install
+ c
+ g
+ ar
+ cc
+ cd
+ eb
+)
+
+;; ----- smex-data -----
+(
+ (package-install . 1)
+)

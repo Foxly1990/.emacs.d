@@ -1,0 +1,43 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/floki/.emacs.d/" . "floki/")
+ ("/home/floki/Документы/Library scripts/" . "Поиск по таблице/")
+ ("/home/floki/Документы/" . "Library scripts/")
+ ("/home/floki/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/ftp-srv35594.ht-systems.ru:"
+ "/home/floki/.emacs.d/floki/"
+ "/home/floki/Документы/Library scripts/Поиск по таблице/"
+ "/home/floki/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "fincludes.el"
+ "index.html"
+ "main.js"
+ "main.css"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/floki/.emacs.d/floki/" (22458 3877 778380 375000) "ffunctions.el" "fincludes.el" "fmain.el" "../" "./" "fbinds.el")
+
+ ("/home/floki/.emacs.d/" (22458 3850 148461 498000) "tramp" "auto-save-list/" "var/" "../" "ido.last" "snippets/" "floki/" "init.el" "elpa/" "./" "recentf")
+
+ ("/home/floki/Документы/Library scripts/Поиск по таблице/" (22458 2520 172569 16000) "../" "README.txt" ".git/" "index.html" "main.js" "./" "main.css")
+
+ ("/home/floki/Документы/Library scripts/" (22457 31845 265664 701000) "Маска для телефона/" "Cookies Javascript/" "Калькулятор для Потолков/" "../" "Форма обратной связи/" "Ajax GET-запрос/" "Поиск по таблице/" "yanMapv0.2/" "./" "Проверка включён ли Javascript/")
+
+ ("/home/floki/Документы/" (22457 42429 555232 443000) "Books/" "Text docs/" "Bash scripts/" "ISO/" "Command of terminal/" "../" "DB/" "Webm/" "Temporary files/" "Deb/" "Library scripts/" "Terms of reference/" "Storage/" "Python/" ".emacs.d/" "Work area/" "My sites/" "./" "Emacs24/")
+
+ ("/home/floki/" (22457 43146 921439 919000) ".esd_auth" "Документы/" ".Skype/" ".steampid" ".adobe/" "Видео/" "Общедоступные/" ".TelegramDesktop/" ".mozilla/" ".archey3.cfg" ".ssh/" ".viminfo" ".cache/" ".vim/" "Рабочий стол/" "../" ".config/" ".python_history" ".wine/" "tmp/" ".bashrc" ".steampath" ".ipython/" "Загрузки/" ".xscreensaver" ".bash_logout" ".pulse-cookie" ".vimrc" ".netrc" ".gimp-2.8/" ".ICEauthority" "Projects/" "index.html" "Шаблоны/" "Музыка/" ".steam/" ".wget-hsts" ".local/" ".emacs.d/" ".pki/" ".gnupg/" "./" "Изображения/" ".bash_profile" ".thumbnails/" ".thunderbird/" ".bash_history" ".macromedia/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
