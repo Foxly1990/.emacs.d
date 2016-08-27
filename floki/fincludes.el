@@ -101,7 +101,7 @@
 
 ;; Автоматическое добавление скобок и ковычек
 (require 'autopair)
-(autopair-global-mode t)
+(autopair-global-mode -1) ;; чтобы глобально вызвать вводим t
 
 ;; После загрузки dired подключить бинды к нему
 (eval-after-load "dired"
@@ -121,12 +121,12 @@
 (global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F6
 
 (require 'cedet) ;; использую "вшитую" версию CEDET. Мне хватает...
-(add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-highlight-func-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
+(add-to-list 'semantic-default-submodes '(global-semanticdb-minor-mode
+                                          global-semantic-mru-bookmark-mode
+                                          global-semantic-idle-scheduler-mode
+                                          global-semantic-highlight-func-mode
+                                          global-semantic-idle-completions-mode
+                                          global-semantic-show-parser-state-mode))
 (semantic-mode   t)
 (global-ede-mode t)
 (require 'ede/generic)
@@ -142,8 +142,7 @@
     (setq ac-auto-start        t)
     (setq ac-auto-show-menu    t)
     (global-auto-complete-mode t)
-    (add-to-list 'ac-modes 'lisp-mode)
-    (add-to-list 'ac-modes 'js2-mode)
+    (add-to-list 'ac-modes '(lisp-mode js2-mode web-mode))
     (add-to-list 'ac-sources 'ac-source-semantic) ;; искать автодополнения в CEDET
     (add-to-list 'ac-sources 'ac-source-variables) ;; среди переменных
     (add-to-list 'ac-sources 'ac-source-functions) ;; в названиях функций
