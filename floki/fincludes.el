@@ -114,4 +114,42 @@
 '(progn (define-key global-map (kbd "C-;") 'ace-jump-mode)))
 (require 'ace-jump-mode)
 
+;; Найти функцию в lisp
+(require 'imenu)
+(setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере
+(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
+(global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F6
+
+(require 'cedet) ;; использую "вшитую" версию CEDET. Мне хватает...
+(add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-highlight-func-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
+(semantic-mode   t)
+(global-ede-mode t)
+(require 'ede/generic)
+(require 'semantic/ia)
+(ede-enable-generic-projects)
+
+(defun ac-init()
+    (require 'auto-complete-config)
+    (ac-config-default)
+    ;; (if (system-is-windows)
+    ;;     (add-to-list 'ac-dictionary-directories win-init-ac-dict-path)
+    ;;     (add-to-list 'ac-dictionary-directories unix-init-ac-dict-path))
+    (setq ac-auto-start        t)
+    (setq ac-auto-show-menu    t)
+    (global-auto-complete-mode t)
+    (add-to-list 'ac-modes 'lisp-mode)
+    (add-to-list 'ac-modes 'js2-mode)
+    (add-to-list 'ac-sources 'ac-source-semantic) ;; искать автодополнения в CEDET
+    (add-to-list 'ac-sources 'ac-source-variables) ;; среди переменных
+    (add-to-list 'ac-sources 'ac-source-functions) ;; в названиях функций
+    (add-to-list 'ac-sources 'ac-source-dictionary) ;; в той папке где редактируемый буфер
+    (add-to-list 'ac-sources 'ac-source-words-in-all-buffer) ;; по всему буферу
+    (add-to-list 'ac-sources 'ac-source-files-in-current-dir))
+(ac-init)
+
 (provide 'fincludes)
