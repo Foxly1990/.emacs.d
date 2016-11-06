@@ -1,6 +1,16 @@
-;; -*- emacs-lisp -*- <16/08/21 23:44:12 /home/floki/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/11/03 01:08:14 /home/floki/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
 ((["ftp" nil "ftp-srv35594.ht-systems.ru" nil nil]
+  ("started" t))
+ (["ftp" nil "5.101.152.30" nil nil]
+  ("started" t))
+ (["ftp" nil "ftp.carmack.hol.es" nil nil]
+  ("started" t))
+ (["ftp" nil "37.187.167.120" nil nil]
+  ("started" t))
+ (["ftp" nil "floki.h1n.ru" nil nil]
+  ("started" t))
+ (["ftp" nil "ftp.alfagips.nichost.ru" nil nil]
   ("started" t)))

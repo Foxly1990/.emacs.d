@@ -73,8 +73,7 @@
 ;; заполненный цветом прямоугольник 'box
 ;; незаполенный цветом прямоугольник 'hollow
 ;; вертикальная линия 'bar
-(setq-default cursor-type 'hbar)
-(set-cursor-color "#ffff00")
+(setq-default cursor-type 'box)
 
 ;; Auto revert buffers
 (global-auto-revert-mode 1)

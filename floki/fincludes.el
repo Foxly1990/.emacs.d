@@ -7,10 +7,10 @@
 (package-initialize)
 
 ;; Ergoemacs mode
-(require 'ergoemacs-mode)
-(setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
-(setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
-(ergoemacs-mode 1)
+;;(require 'ergoemacs-mode)
+;;(setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
+;;(setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
+;;(ergoemacs-mode 1)
 
 ;; Nyan Cat mode
 (require 'nyan-mode)
@@ -38,24 +38,17 @@
 (setq org-log-done t)
 
 ;; Бинды vim
-;; (eval-after-load "evil"
-;;   '(progn
-;;      (define-key evil-normal-state-map (kbd "M-l") 'evil-window-next)
-;;      (define-key evil-normal-state-map (kbd "M-k") 'evil-window-prev)
-;;      (define-key evil-visual-state-map (kbd "M-'") 'comment-region)
-;;      (define-key global-map (kbd "M-1") 'split-window-horizontally)
-;;      (define-key global-map (kbd "M-2") 'split-window-vertically)
-;;      (define-key global-map (kbd "M-3") 'delete-window)
-;;      (define-key global-map (kbd "M-4") 'delete-other-windows)
-;;      (setq evil-default-cursor '("yellow" hbar))
-;;      (setq evil-normal-state-cursor '("yellow" hbar))
-;;      (setq evil-insert-state-cursor '("yellow" bar))
-;;      (setq evil-visual-state-cursor '("yellow" box))))
-;; (require 'evil)
-;; (evil-mode 1)
+(eval-after-load "evil"
+  '(progn
+     (setq evil-default-cursor '("yellow" hbar))
+     (setq evil-normal-state-cursor '("yellow" hbar))
+     (setq evil-insert-state-cursor '("yellow" bar))
+     (setq evil-visual-state-cursor '("yellow" box))))
+(require 'evil)
+(evil-mode 1)
 
 ;; Подключаем linum
-(require 'nlinum)
+(require 'linum)
 (setq linum-format "%d ")
 (global-linum-mode 1)
 
@@ -94,6 +87,10 @@
 (setq js2-basic-offset 4)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; Подключаем clojure-mode
+(require 'clojure-mode)
+(add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
+
 ;; Состояния TODO в org-mode
 (require 'org)
 (setq org-todo-keywords
@@ -120,7 +117,8 @@
 (setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
 (global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F6
 
-(require 'cedet) ;; использую "вшитую" версию CEDET. Мне хватает...
+;; CEDET
+(require 'cedet) ;; использую "вшитую" версию CEDET
 (add-to-list 'semantic-default-submodes '(global-semanticdb-minor-mode
                                           global-semantic-mru-bookmark-mode
                                           global-semantic-idle-scheduler-mode
@@ -133,12 +131,10 @@
 (require 'semantic/ia)
 (ede-enable-generic-projects)
 
+;; Настраиваем автокомплит
 (defun ac-init()
     (require 'auto-complete-config)
     (ac-config-default)
-    ;; (if (system-is-windows)
-    ;;     (add-to-list 'ac-dictionary-directories win-init-ac-dict-path)
-    ;;     (add-to-list 'ac-dictionary-directories unix-init-ac-dict-path))
     (setq ac-auto-start        t)
     (setq ac-auto-show-menu    t)
     (global-auto-complete-mode t)
@@ -150,5 +146,4 @@
     (add-to-list 'ac-sources 'ac-source-words-in-all-buffer) ;; по всему буферу
     (add-to-list 'ac-sources 'ac-source-files-in-current-dir))
 (ac-init)
-
 (provide 'fincludes)

@@ -1,16 +1,35 @@
 
 ;; ----- smex-history -----
 (
+ shell
+ linum-mode
  package-install
- c
- g
- ar
- cc
- cd
- eb
+ list-packages
+ tetris
+ customize-themes
+ package-list-packages
 )
 
 ;; ----- smex-data -----
 (
- (package-install . 1)
+ (package-install . 9)
+ (list-packages . 14)
+ (butterfly . 2)
+ (js2-imenu-extras-mode . 2)
+ (js2-mode . 1)
+ (magit-status . 4)
+ (ielm . 2)
+ (lisp-mode . 2)
+ (shell . 21)
+ (magit-clone . 1)
+ (clojure-mode . 1)
+ (slime . 4)
+ (slime-abort-connection . 2)
+ (slime-connect . 4)
+ (doctor . 1)
+ (package-list-packages . 3)
+ (ergoemacs-timing-results . 4)
+ (customize-themes . 1)
+ (tetris . 1)
+ (linum-mode . 4)
 )
