@@ -21,24 +21,28 @@ Version 2015-07-30"
     (dired-sort-other -arg )))
 
 ;; Подключаем tramp
-(setq ange-ftp-try-passive-mode t)
-(setq ange-ftp-passive-host-alist nil)
-(setq tramp-default-method "ftp")
+(defvar ange-ftp-try-passive-mode t)
+(defvar ange-ftp-passive-host-alist nil)
+(defvar tramp-default-method "ftp")
 (require 'tramp)
 
 ;; Создать новый файл
-(defun dired-touch(fname)
-  "Create new file"
-  (interactive (list
-                (read-string (format "New file: " (thing-at-point 'fname)
-                                     nil nil (thing-at-point 'fname)))))
-  (write-region "" nil fname t))
+(defun dired-touch (file-name)
+  "FILE-NAME is file name which you must type."
+  (interactive "sNew File: ")
+  (write-region "" nil file-name t))
+
+(defun dired-mkdir (directory-name)
+  "DIRECTORY-NAME is directory name which you must type."
+  (interactive "sNew Directory: ")
+  (make-directory directory-name))
 
 ;; После загрузки dired подключить бинды к нему
 (eval-after-load "dired"
   '(progn
      (define-key dired-mode-map "w" 'dired-jump)
      (define-key dired-mode-map "b" 'xah-dired-sort)
-     (define-key dired-mode-map "z" 'dired-touch)))
+     (define-key dired-mode-map "n" 'dired-touch)
+     (define-key dired-mode-map "+" 'dired-mkdir)))
 
 ;;; dired.el ends here

@@ -9,7 +9,7 @@
   (ido-mode t)
   (icomplete-mode t)
   (ido-everywhere t)
-  (setq ido-vitrual-buffers t)
+  (defvar ido-vitrual-buffers t)
   (setq ido-enable-flex-matching t))
 (ido-settings)
 

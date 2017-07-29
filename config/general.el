@@ -7,7 +7,10 @@
 (setq file-name-coding-system 'utf-8)
 
 ;; Открыть во весь экран
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+;(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; Вести максимально подробный лог
+(setq message-log-max t)
 
 ;; Убрать скролл, меню
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -30,7 +33,7 @@
 (setq select-enable-clipboard t)
 
 ;; Подсветка скобок
-(setq show-paren-style 'expression)
+(defvar show-paren-style 'expression)
 ;; (setq show-paren-style 'parenthesis)
 ;; (setq show-paren-style 'mixed)
 (show-paren-mode 1)
@@ -55,26 +58,44 @@
 ;; Сохранить сессию -1, 1
 (desktop-save-mode -1)
 
+;; К сохраняемым данным добавляет кодировку с которой использовался буфер
+(add-to-list 'desktop-locals-to-save 'buffer-file-coding-system)
+
 ;; Настройка скролла
-(setq scroll-set 1)
+(defvar scroll-set 1)
 (setq scroll-margin 10)
 (setq scroll-conservatively 1000000)
 
 ;; Создавать визуальный перенос строк
-(setq-default truncate-lines t)
+(setq-default truncate-lines nil)
 
 ;; Автообновление буфера
-(global-auto-revert-mode 1)
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
+(global-auto-revert-mode t)
+(defvar global-auto-revert-non-file-buffers t)
+(defvar auto-revert-verbose nil)
 
 ;; Автозакрытие скобок, кавычек
-(require 'autopair)
-(autopair-global-mode t)
+;; (require 'autopair)
+;; (autopair-global-mode t)
 
 ;; Подключаем flycheck
 (require 'flycheck)
 (global-flycheck-mode)
+
+;; Buffer show
+(require 'bs)
+(setq bs-configurations
+'(("files" "^\\*scratch\\*" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
+
+;; Sr Speedbar
+(require 'sr-speedbar)
+(custom-set-variables
+ '(speedbar-show-unknown-files t))
+(setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
+
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; Стартовое сообщение в *scratch*
 (setq initial-scratch-message
